@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+checkpoints/*
+lora/*
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+
+outputs/
+input/
+dataset/
