@@ -94,7 +94,7 @@ class Text2PixelCharacter:
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("image",)
     FUNCTION = "generate"
-    CATEGORY = "Addy/Pixel Tools"
+    CATEGORY = "Blanche/Pixel Tools"
 
     def generate(self, ckpt_name, lora_name, character_prompt, seed):
         if ckpt_name == "NO_CHECKPOINT_FOUND":
@@ -102,7 +102,7 @@ class Text2PixelCharacter:
                 f"No checkpoint found in: {CHECKPOINT_DIR}"
             )
 
-        steps = 40
+        steps = 28
         cfg = 5.0
         sampler_name = "euler"
         scheduler = "karras"
@@ -112,20 +112,20 @@ class Text2PixelCharacter:
         height = 256
         batch_size = 1
 
-        lora_strength_model = 1.20
-        lora_strength_clip = 0.94
+        lora_strength_model = 0.68
+        lora_strength_clip = 0.80
 
         style_prompt = (
-            "Pxstyle, chibi, big head, small body, full body, full body RPG character sprite, simple white background, pixel art, clean outline,"
+            "Pxstyle, pixel art, chibi, big head, small body, , centered subject, fullbody RPG character sprite, marginaround the subject, simple solidbackground,"
         )
 
         negative_prompt = (
             "smooth painting, blurry, anti aliasing, soft shading, realistic, semi realistic, illustration, painterly, brush strokes, detailed background, gradient background,"
+            
         )
 
         positive_prompt = f"{style_prompt} {character_prompt}"
 
-        # Load checkpoint from this node's checkpoints folder
         ckpt_path = folder_paths.get_full_path(
             "text2pixel_checkpoints",
             ckpt_name
