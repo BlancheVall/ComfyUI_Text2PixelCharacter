@@ -11,7 +11,7 @@ A custom ComfyUI node for generating cozy fantasy JRPG-style pixel characters fr
 
 LIKE THIS:
 
-![Preview](emoji/demo.png)
+![Preview](emoji/demo.gif)
 
 This node automatically:
 
